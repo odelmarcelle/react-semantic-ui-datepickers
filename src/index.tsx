@@ -83,6 +83,7 @@ class SemanticDatepicker extends React.Component<
     filterDate: () => true,
     firstDayOfWeek: 0,
     format: 'YYYY-MM-DD',
+    displayFormat: 'YYYY-MM-DD',
     icon: 'calendar',
     id: undefined,
     inline: false,
@@ -126,14 +127,14 @@ class SemanticDatepicker extends React.Component<
   }
 
   get initialState() {
-    const { format, value, formatOptions } = this.props;
+    const { displayFormat, value, formatOptions } = this.props;
     const initialSelectedDate = this.isRangeInput ? [] : null;
 
     return {
       isVisible: false,
       locale: this.locale,
       selectedDate: value || initialSelectedDate,
-      selectedDateFormatted: formatSelectedDate(value, format, formatOptions),
+      selectedDateFormatted: formatSelectedDate(value, displayFormat, formatOptions),
       typedValue: null,
     };
   }
@@ -264,7 +265,7 @@ class SemanticDatepicker extends React.Component<
   };
 
   handleRangeInput = (newDates, event) => {
-    const { format, keepOpenOnSelect, onChange, formatOptions } = this.props;
+    const { displayFormat, keepOpenOnSelect, onChange, formatOptions } = this.props;
 
     if (!newDates || !newDates.length) {
       this.resetState(event);
@@ -276,7 +277,7 @@ class SemanticDatepicker extends React.Component<
       selectedDate: newDates,
       selectedDateFormatted: formatSelectedDate(
         newDates,
-        format,
+        displayFormat,
         formatOptions
       ),
       typedValue: null,
@@ -292,7 +293,7 @@ class SemanticDatepicker extends React.Component<
   };
 
   handleBasicInput = (newDate, event) => {
-    const { format, keepOpenOnSelect, onChange, formatOptions } = this.props;
+    const { displayFormat, keepOpenOnSelect, onChange, formatOptions } = this.props;
 
     if (!newDate) {
       this.resetState(event);
@@ -302,7 +303,7 @@ class SemanticDatepicker extends React.Component<
     const newState = {
       isVisible: keepOpenOnSelect,
       selectedDate: newDate,
-      selectedDateFormatted: formatSelectedDate(newDate, format, formatOptions),
+      selectedDateFormatted: formatSelectedDate(newDate, displayFormat, formatOptions),
       typedValue: null,
     };
 

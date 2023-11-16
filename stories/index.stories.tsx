@@ -37,6 +37,7 @@ export const basicUsage = () => {
     min: 0,
   }) as SemanticDatepickerProps['firstDayOfWeek'];
   const format = text('Format', 'YYYY-MM-DD');
+  const displayFormat = text('Display Format', 'YYYY-MM-DD');
   const keepOpenOnClear = boolean('Keep open on clear', false);
   const keepOpenOnSelect = boolean('Keep open on select', false);
   const locale = select('Locale', localeMap, localeMap['en-US']);
@@ -69,6 +70,7 @@ export const basicUsage = () => {
         filterDate={filterDate}
         firstDayOfWeek={firstDayOfWeek}
         format={format}
+        displayFormat={displayFormat}
         icon={icon}
         iconPosition={iconOnLeft ? 'left' : undefined}
         inline={inline}
