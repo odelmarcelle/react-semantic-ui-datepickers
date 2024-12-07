@@ -5,8 +5,8 @@ export declare const keys: {
     escape: number;
     space: number;
 };
-export declare const isSelectable: (date: Date, minDate?: Date | undefined, maxDate?: Date | undefined) => boolean;
-export declare const getToday: (minDate?: Date | undefined, maxDate?: Date | undefined) => DateObj;
+export declare const isSelectable: (date: Date, minDate?: Date, maxDate?: Date) => boolean;
+export declare const getToday: (minDate?: Date, maxDate?: Date) => DateObj;
 export declare const formatDate: (date: Date | null, dateFormat: string, formatOptions?: FnsFormatOptions) => string | undefined;
 export declare const omit: (keysToOmit: string[], obj: Object) => {
     [x: string]: any;

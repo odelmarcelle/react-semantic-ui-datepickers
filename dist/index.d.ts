@@ -50,7 +50,7 @@ declare class SemanticDatepicker extends React.Component<SemanticDatepickerProps
     showCalendar: (event: any) => void;
     handleRangeInput: (newDates: any, event: any) => void;
     handleBasicInput: (newDate: any, event: any) => void;
-    handleBlur: (event?: React.SyntheticEvent<Element, Event> | undefined) => void;
+    handleBlur: (event?: React.SyntheticEvent) => void;
     handleChange: (event: React.SyntheticEvent, { value }: {
         value: any;
     }) => void;

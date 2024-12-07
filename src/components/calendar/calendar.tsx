@@ -1,6 +1,6 @@
 import cn from 'classnames';
 import React, { Fragment, SyntheticEvent, useEffect, useRef } from 'react';
-import { Ref, Segment } from 'semantic-ui-react';
+import { Segment } from 'semantic-ui-react';
 import { Locale, RenderProps, SemanticDatepickerProps } from 'types';
 import { getShortDate, getToday } from '../../utils';
 import Button from '../button';
@@ -79,7 +79,7 @@ const Calendar: React.FC<CalendarProps> = ({
   });
 
   return (
-    <Ref innerRef={rootRef}>
+    <React.Fragment>
       <Segment
         {...rootProps}
         inverted={inverted}
@@ -218,7 +218,7 @@ const Calendar: React.FC<CalendarProps> = ({
           </TodayButton>
         ) : null}
       </Segment>
-    </Ref>
+    </React.Fragment>
   );
 };
 

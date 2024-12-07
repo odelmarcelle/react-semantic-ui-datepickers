@@ -4,7 +4,7 @@ export declare const setup: (props?: Partial<SemanticDatepickerProps>) => {
     getClearIcon: () => HTMLElement;
     getIcon: () => HTMLElement;
     openDatePicker: () => boolean;
-    rerender: (newProps?: Partial<SemanticDatepickerProps> | undefined) => void;
+    rerender: (newProps?: Partial<SemanticDatepickerProps>) => void;
     container: HTMLElement;
     baseElement: HTMLElement;
     debug: (baseElement?: Element | DocumentFragment | (Element | DocumentFragment)[] | undefined, maxLength?: number | undefined, options?: import("pretty-format").PrettyFormatOptions | undefined) => void;

@@ -5,7 +5,6 @@ import {
   Input,
   FormInputProps,
   FormFieldProps,
-  Ref,
 } from 'semantic-ui-react';
 import { SemanticDatepickerProps } from '../types';
 import CustomIcon from './icon';
@@ -45,7 +44,7 @@ const CustomInput = React.forwardRef<Input, InputProps>((props, ref) => {
   } = props;
 
   return (
-    <Ref innerRef={fieldRef}>
+    <React.Fragment>
       <Form.Field {...fieldProps} style={style}>
         {label ? (
           <label htmlFor={rest.id as string | undefined}>{label as ReactNode}</label>
@@ -70,7 +69,7 @@ const CustomInput = React.forwardRef<Input, InputProps>((props, ref) => {
         />
         {children}
       </Form.Field>
-    </Ref>
+    </React.Fragment>
   );
 });
 
