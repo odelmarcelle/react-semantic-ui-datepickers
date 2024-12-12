@@ -1,5 +1,5 @@
 import React from 'react';
-import { Input, FormInputProps, FormFieldProps } from 'semantic-ui-react';
+import { FormInputProps, FormFieldProps } from 'semantic-ui-react';
 import { SemanticDatepickerProps } from '../types';
 declare type InputProps = FormInputProps & {
     clearIcon: SemanticDatepickerProps['clearIcon'];

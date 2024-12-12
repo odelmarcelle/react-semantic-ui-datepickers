@@ -26,6 +26,7 @@ const style: React.CSSProperties = {
   position: 'relative',
 };
 
+// @ts-ignore
 const CustomInput = React.forwardRef<Input, InputProps>((props, ref) => {
   const {
     clearIcon,
@@ -45,7 +46,7 @@ const CustomInput = React.forwardRef<Input, InputProps>((props, ref) => {
 
   return (
     <React.Fragment>
-      <Form.Field {...fieldProps} style={style}>
+      <Form.Field {...fieldProps} style={style} ref={fieldRef}>
         {label ? (
           <label htmlFor={rest.id as string | undefined}>{label as ReactNode}</label>
         ) : null}

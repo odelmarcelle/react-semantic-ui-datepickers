@@ -538,6 +538,9 @@ const Calendar = _ref => {
     pointing
   } = _ref;
   const _getRootProps = getRootProps(),
+    {
+      ref: rootRef
+    } = _getRootProps,
     rootProps = _objectWithoutPropertiesLoose(_getRootProps, _excluded$1);
   const pressedBtnRef = useRef();
   const onPressBtn = evt => {
@@ -553,7 +556,9 @@ const Calendar = _ref => {
     }
   });
   return jsx(React.Fragment, {
-    children: jsxs(Segment, _extends({}, rootProps, {
+    children: jsxs(Segment, _extends({
+      ref: rootRef
+    }, rootProps, {
       inverted: inverted,
       className: cn('clndr-calendars-segment', {
         'clndr-floating': !inline,
@@ -709,6 +714,7 @@ const inputData = {
 const style = {
   position: 'relative'
 };
+// @ts-ignore
 const CustomInput = /*#__PURE__*/React.forwardRef((props, ref) => {
   const {
       clearIcon,
@@ -721,12 +727,14 @@ const CustomInput = /*#__PURE__*/React.forwardRef((props, ref) => {
       required,
       value,
       fieldProps,
+      fieldRef,
       children
     } = props,
     rest = _objectWithoutPropertiesLoose(props, _excluded);
   return jsx(React.Fragment, {
     children: jsxs(Form.Field, _extends({}, fieldProps, {
       style: style,
+      ref: fieldRef,
       children: [label ? jsx("label", {
         htmlFor: rest.id,
         children: label
@@ -749,6 +757,7 @@ const CustomInput = /*#__PURE__*/React.forwardRef((props, ref) => {
   });
 });
 
+// import localeJson from './locales/en-US.json';
 const semanticInputProps = ['autoComplete', 'autoFocus', 'className', 'clearIcon', 'disabled', 'error', 'icon', 'iconPosition', 'id', 'label', 'loading', 'name', 'onBlur', 'onChange', 'onClick', 'onContextMenu', 'onDoubleClick', 'onFocus', 'onInput', 'onKeyDown', 'onKeyPress', 'onKeyUp', 'onMouseDown', 'onMouseEnter', 'onMouseLeave', 'onMouseMove', 'onMouseOut', 'onMouseOver', 'onMouseUp', 'placeholder', 'required', 'size', 'tabIndex', 'transparent', 'readOnly'];
 const semanticFormFieldProps = ['disabled', 'error', 'inline', 'required', 'width'];
 class SemanticDatepicker extends React.Component {
@@ -809,11 +818,7 @@ class SemanticDatepicker extends React.Component {
       var _this$inputRef;
       if ((_this$inputRef = this.inputRef) != null && _this$inputRef.current) {
         // @ts-ignore
-        const {
-          focus,
-          inputRef
-        } = this.inputRef.current;
-        if (document.activeElement !== inputRef.current) {
+        if (document.activeElement !== this.inputRef.current) {
           focus();
         }
       }

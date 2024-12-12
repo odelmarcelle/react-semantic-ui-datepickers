@@ -81,6 +81,7 @@ const Calendar: React.FC<CalendarProps> = ({
   return (
     <React.Fragment>
       <Segment
+        ref = {rootRef}
         {...rootProps}
         inverted={inverted}
         className={cn('clndr-calendars-segment', {

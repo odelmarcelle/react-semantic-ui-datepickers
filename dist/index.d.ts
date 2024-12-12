@@ -1,5 +1,5 @@
 import React from 'react';
-import { Input as SUIInput } from 'semantic-ui-react';
+import { InputProps as SUIInput } from 'semantic-ui-react';
 import { Locale, SemanticDatepickerProps } from './types';
 declare type SemanticDatepickerState = {
     isVisible: boolean;

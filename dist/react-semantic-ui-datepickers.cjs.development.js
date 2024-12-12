@@ -524,6 +524,9 @@ const Calendar = _ref => {
     pointing
   } = _ref;
   const _getRootProps = getRootProps(),
+    {
+      ref: rootRef
+    } = _getRootProps,
     rootProps = _objectWithoutPropertiesLoose(_getRootProps, _excluded$1);
   const pressedBtnRef = React.useRef();
   const onPressBtn = evt => {
@@ -539,7 +542,9 @@ const Calendar = _ref => {
     }
   });
   return jsxRuntime.jsx(React__default["default"].Fragment, {
-    children: jsxRuntime.jsxs(semanticUiReact.Segment, _extends({}, rootProps, {
+    children: jsxRuntime.jsxs(semanticUiReact.Segment, _extends({
+      ref: rootRef
+    }, rootProps, {
       inverted: inverted,
       className: cn__default["default"]('clndr-calendars-segment', {
         'clndr-floating': !inline,
@@ -695,6 +700,7 @@ const inputData = {
 const style = {
   position: 'relative'
 };
+// @ts-ignore
 const CustomInput = /*#__PURE__*/React__default["default"].forwardRef((props, ref) => {
   const {
       clearIcon,
@@ -707,12 +713,14 @@ const CustomInput = /*#__PURE__*/React__default["default"].forwardRef((props, re
       required,
       value,
       fieldProps,
+      fieldRef,
       children
     } = props,
     rest = _objectWithoutPropertiesLoose(props, _excluded);
   return jsxRuntime.jsx(React__default["default"].Fragment, {
     children: jsxRuntime.jsxs(semanticUiReact.Form.Field, _extends({}, fieldProps, {
       style: style,
+      ref: fieldRef,
       children: [label ? jsxRuntime.jsx("label", {
         htmlFor: rest.id,
         children: label
@@ -735,6 +743,7 @@ const CustomInput = /*#__PURE__*/React__default["default"].forwardRef((props, re
   });
 });
 
+// import localeJson from './locales/en-US.json';
 const semanticInputProps = ['autoComplete', 'autoFocus', 'className', 'clearIcon', 'disabled', 'error', 'icon', 'iconPosition', 'id', 'label', 'loading', 'name', 'onBlur', 'onChange', 'onClick', 'onContextMenu', 'onDoubleClick', 'onFocus', 'onInput', 'onKeyDown', 'onKeyPress', 'onKeyUp', 'onMouseDown', 'onMouseEnter', 'onMouseLeave', 'onMouseMove', 'onMouseOut', 'onMouseOver', 'onMouseUp', 'placeholder', 'required', 'size', 'tabIndex', 'transparent', 'readOnly'];
 const semanticFormFieldProps = ['disabled', 'error', 'inline', 'required', 'width'];
 class SemanticDatepicker extends React__default["default"].Component {
@@ -795,11 +804,7 @@ class SemanticDatepicker extends React__default["default"].Component {
       var _this$inputRef;
       if ((_this$inputRef = this.inputRef) != null && _this$inputRef.current) {
         // @ts-ignore
-        const {
-          focus,
-          inputRef
-        } = this.inputRef.current;
-        if (document.activeElement !== inputRef.current) {
+        if (document.activeElement !== this.inputRef.current) {
           focus();
         }
       }

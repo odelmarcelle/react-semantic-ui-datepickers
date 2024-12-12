@@ -1,5 +1,5 @@
-const { readdir, readFile } = require('fs').promises;
-const path = require('path');
+import { readdir, readFile } from 'fs/promises';
+import path from 'path';
 
 const localesFolder = path.resolve(__dirname, '../src/locales');
 const expectedKeys = JSON.stringify([

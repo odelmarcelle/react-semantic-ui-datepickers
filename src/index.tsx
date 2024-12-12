@@ -2,7 +2,7 @@ import isValid from 'date-fns/isValid';
 import formatStringByPattern from 'format-string-by-pattern';
 import React from 'react';
 import isEqual from 'react-fast-compare';
-import { Input as SUIInput } from 'semantic-ui-react';
+import { InputProps as SUIInput } from 'semantic-ui-react';
 import {
   formatSelectedDate,
   keys,
@@ -260,8 +260,7 @@ class SemanticDatepicker extends React.Component<
   focusOnInput = () => {
     if (this.inputRef?.current) {
       // @ts-ignore
-      const { focus, inputRef } = this.inputRef.current;
-      if (document.activeElement !== inputRef.current) {
+      if (document.activeElement !== this.inputRef.current) {
         focus();
       }
     }
